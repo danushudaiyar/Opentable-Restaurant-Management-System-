@@ -1,0 +1,73 @@
+@model OpenTable.Areas.Admin.ViewModels.AdminUserViewModel
+@{
+    ViewData["Title"] = "Edit User";
+    Layout = "_AdminLayout";
+}
+
+<div class="container mt-4">
+    <h2><i class="bi bi-person-gear"></i> Edit User</h2>
+    <hr />
+
+    <form asp-action="Edit" method="post" class="row g-3">
+        <input type="hidden" asp-for="CurrentUser.Id" />
+        
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="col-md-6">
+            <label asp-for="CurrentUser.Username" class="form-label"></label>
+            <input asp-for="CurrentUser.Username" class="form-control" />
+            <span asp-validation-for="CurrentUser.Username" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="CurrentUser.Email" class="form-label"></label>
+            <input asp-for="CurrentUser.Email" class="form-control" type="email" />
+            <span asp-validation-for="CurrentUser.Email" class="text-danger"></span>
+        </div>
+
+        <div class="col-md-6">
+            <label asp-for="CurrentUser.Role" class="form-label"></label>
+            <select asp-for="CurrentUser.Role" class="form-select">
+                <option value="customer">Customer</option>
+                <option value="manager">Manager</option>
+                <option value="admin">Administrator</option>
+            </select>
+            <span asp-validation-for="CurrentUser.Role" class="text-danger"></span>
+        </div>
+
+        <div class="col-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Change Password (Optional)</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label asp-for="CurrentUser.Password" class="form-label"></label>
+                            <input asp-for="CurrentUser.Password" class="form-control" type="password" />
+                            <span asp-validation-for="CurrentUser.Password" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="CurrentUser.ConfirmPassword" class="form-label"></label>
+                            <input asp-for="CurrentUser.ConfirmPassword" class="form-control" type="password" />
+                            <span asp-validation-for="CurrentUser.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-save"></i> Save Changes
+            </button>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-x-circle"></i> Cancel
+            </a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,40 @@
+@using OpenTable.Areas.Admin.ViewModels
+@model AdminRestaurantViewModel
+@{
+    ViewData["Title"] = "Add Restaurant";
+}
+
+<h2>Add Restaurant</h2>
+
+<form asp-action="Add" method="post">
+    <div class="mb-3">
+        <label asp-for="CurrentRestaurant.Name" class="form-label"></label>
+        <input asp-for="CurrentRestaurant.Name" class="form-control">
+        <span asp-validation-for="CurrentRestaurant.Name" class="text-danger"></span>
+    </div>
+    
+    <div class="mb-3">
+        <label asp-for="CurrentRestaurant.MetropolisId" class="form-label"></label>
+        <select asp-for="CurrentRestaurant.MetropolisId" class="form-select"
+                asp-items="@(new SelectList(Model.Metropolises, "Id", "Name"))">
+            <option value="">Select a City</option>
+        </select>
+        <span asp-validation-for="CurrentRestaurant.MetropolisId" class="text-danger"></span>
+    </div>
+    
+    <div class="mb-3">
+        <label asp-for="CurrentRestaurant.PriceRange" class="form-label"></label>
+        <select asp-for="CurrentRestaurant.PriceRange" class="form-select"
+                asp-items="@(new SelectList(AdminRestaurantViewModel.PriceRanges, "Key", "Value"))">
+            <option value="">Select Price Range</option>
+        </select>
+        <span asp-validation-for="CurrentRestaurant.PriceRange" class="text-danger"></span>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,10 @@
+/* Main-specific styles */
+.main-dropdown {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.main-content {
+    padding: 20px;
+}

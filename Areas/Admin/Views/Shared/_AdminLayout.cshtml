@@ -1,0 +1,30 @@
+@{
+    Layout = "_Layout";  // Inherit from the root layout
+}
+
+<link href="~/css/admin.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<!-- Content specific to the Admin area -->
+<header>
+    <nav>
+        <!-- Logo Section -->
+        <div class="logo">
+            <a asp-controller="Home" asp-action="Index">
+                <img src="/images/LOGO.PNG" alt="OpenTable Logo" style="width: 200px; height: auto;">
+            </a>
+        </div>
+
+        <!-- Navigation Links -->
+        <a asp-area="Admin" asp-controller="Metropolis" asp-action="List">Manage Metropolis</a>
+        <a asp-area="Admin" asp-controller="Restaurant" asp-action="Add">Manage Restaurant</a>
+        <a asp-area="Admin" asp-controller="User" asp-action="Update">Manage Users</a>
+        <a asp-area="Main" asp-controller="Home" asp-action="Index">Home</a>
+    </nav>
+</header>
+
+<main>
+    @RenderBody()  <!-- This ensures views are rendered inside the layout -->
+</main>

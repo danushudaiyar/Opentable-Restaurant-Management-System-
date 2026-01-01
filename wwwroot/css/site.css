@@ -1,0 +1,49 @@
+/* Navigation styles */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo a {
+  font-size: 2rem; /* Larger logo font size */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.logo {
+  margin-bottom: 20px; /* Space below the logo */
+}
+
+/* Dropdown positioned below the logo */
+.dropdown-container {
+  margin-top: 10px; /* Adds space between logo and dropdown */
+  align-self: flex-start; /* Align the dropdown left under the logo */
+}
+
+/* Navigation links aligned right */
+.nav-right {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.nav-right a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Footer styles */
+footer {
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: left;
+}
+
+footer a {
+  margin-right: 10px;
+}

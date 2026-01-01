@@ -1,0 +1,51 @@
+@{
+    Layout = "_Layout";  // Inherit from the root layout
+}
+
+<link href="~/css/main.css" rel="stylesheet" />
+
+<!-- Content specific to the Main area -->
+<header>
+    <nav>
+        <div>
+            <div class="logo">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/LOGO.PNG" alt="OpenTable Logo" style="width: 200px; height: auto;">
+                </a>
+            </div>
+
+            <!-- Dropdown below the logo, left-aligned -->
+            <div class="dropdown-container">
+                <select id="citySelect">
+                    <option>Atlanta</option>
+                    <option>Boston</option>
+                    <option>Charlotte</option>
+                    <option>Chicago</option>
+                    <option>Houston</option>
+                    <option>Los Angeles</option>
+                    <option>Miami</option>
+                    <option>New York</option>
+                    <option>Phoenix</option>
+                    <option>San Francisco</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Navigation links -->
+        <div>
+            <a asp-area="Main" asp-controller="FindATable" asp-action="List">Find a Table</a>
+            <a asp-area="Main" asp-controller="Reservation" asp-action="Manage">Manage Reservation</a>
+        </div>
+
+        <!-- Navigation links aligned right -->
+        <div class="nav-right">
+            <a asp-area="Main" asp-controller="Mobile" asp-action="List">Mobile</a>
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a>
+            <a asp-area="Main" asp-controller="FAQs" asp-action="Questions">FAQs</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    @RenderBody()  <!-- This ensures views are rendered inside the layout -->
+</main>
